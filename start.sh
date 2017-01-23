@@ -221,6 +221,8 @@ gosu mysql mysqld.sh --console \
 	--wsrep_cluster_name=$CLUSTER_NAME \
 	"--wsrep_cluster_address=gcomm://$GCOMM?pc.wait_prim=no" \
 	--wsrep_node_address=$NODE_ADDRESS:4567 \
+	--wsrep-gtid-mode=${GTID_MODE:-0} \
+	--wsrep-gtid-domain-id=${GTID_DOMAIN_ID:-0} \
 	--wsrep_sst_auth=xtrabackup:$XTRABACKUP_PASSWORD \
 	--default-time-zone=+00:00 \
 	"$@" 2>&1 &
