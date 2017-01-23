@@ -136,7 +136,7 @@ fi
 #
 case "$1" in
 	seed)
-		MYSQL_MODE_ARGS+=" --wsrep-on=ON --wsrep-new-cluster"
+		MYSQL_MODE_ARGS+=" --wsrep-on=ON --wsrep-new-cluster --wsrep_provider_options=pc.weight=0"
 		shift 1
 		echo "Starting seed node"
 		;;
