@@ -219,7 +219,7 @@ galera-healthcheck -user=system -password="$SYSTEM_PASSWORD" \
 gosu mysql mysqld.sh --console \
 	$MYSQL_MODE_ARGS \
 	--wsrep_cluster_name=$CLUSTER_NAME \
-	--wsrep_cluster_address=gcomm://$GCOMM \
+	"--wsrep_cluster_address=gcomm://$GCOMM?pc.wait_prim=no" \
 	--wsrep_node_address=$NODE_ADDRESS:4567 \
 	--wsrep_sst_auth=xtrabackup:$XTRABACKUP_PASSWORD \
 	--default-time-zone=+00:00 \
